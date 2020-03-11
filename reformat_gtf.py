@@ -23,15 +23,12 @@ def is_bad_gtf(gtffile):
 
 	missing_gene = False
 	missing_trans = False
-	header_lines = False
 
 	# how many lines are useless lines
 	with open(gtffile, 'r') as infile:
 		for i, line in enumerate(infile):
 			if '##' not in line and not line.startswith('#'):
 				break
-			else: 
-				header_lines = True
 	skiprows = [j for j in range(0, i)]
 
 	df = pd.read_csv(gtffile, sep='\t', usecols=[2], skiprows=skiprows)
@@ -43,7 +40,7 @@ def is_bad_gtf(gtffile):
 	if 'transcript' not in categories:
 		missing_trans = True
 
-	return (missing_gene, missing_trans, header_lines)
+	return (missing_gene, missing_trans)
 
 # get value associated with keyword in the 9th column of gtf
 def get_field_value(key, fields):
@@ -98,12 +95,11 @@ def main():
 	args = get_args()
 	gtffile = args.gtf
 
-	(missing_gene, missing_transcript, header_lines) = is_bad_gtf(gtffile)
+	(missing_gene, missing_transcript) = is_bad_gtf(gtffile)
 
 	# if nothing is missing, you good!
-	if not missing_gene and not missing_transcript and not header_lines:
-		print('GTF has both gene and transcript entries; no unnecessary header lines. '
-			  'Nothing to add.') 
+	if not missing_gene and not missing_transcript:
+		print('GTF has both gene and transcript entries. Nothing to add.')
 		return
 
 	# loop through this thing
@@ -130,7 +126,7 @@ def main():
 	if missing_gene:
 		entries.append('transcript')
 
-	if missing_gene or missing_transcript or header_lines:
+	if missing_gene or missing_transcript:
 
 		for line in infile:
 
