@@ -13,7 +13,7 @@ ofile = open(args.fasta_file+'_back', 'w')
 with open(args.fasta_file, 'r') as fafile:
 	for line in fafile: 
 		if line[0] == '>':
-			line = line.split('|')[0]
+			line = line.split(' ')[0]
 		if '\n' not in line:
 			line += '\n'
 		ofile.write(line)
