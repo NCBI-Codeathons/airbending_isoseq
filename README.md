@@ -1,13 +1,5 @@
 # Inferring-intact-transcript-structure-and-discovering-novel-isoforms-from-long-read-data
 
-Problem
-Sequencing technologies have allowed more information on transcriptomes from long-read sequencing technologies such as PacBio and Oxford Nanopore. With increased technologies there is now a lot of long-read data sets that need to be analyzed to learn more about novel isoforms not before able to be curated. With this new pipeline we want to be able to process large data sets of long-read data with high quality and be able to isolate novel transcripts in a usable number to continue curation
+The technological advance of long-read transcript sequencing has changed how we can analyze transcriptomic data. However, with the increased load of long-read transcript data there is an increased need to accurrately and reproducibaly annotate the data. Piplines such as Talon are able to annotate transcriptomic data as isoforms and sqanti is able to classify transcripts based on functionality. This new pipeline will combine the power of Talon and sqanti to detect intact transcripts of high quality as novel isoforms from long read data. With this pipeline, any genome reference can be used to curate transcriptome data and extract usable data on novel isoforms to potentially curate and increase isoform knowledge.
 
-Approach: Add preprocess to adapt to curate refseq
 
-Expected results: a collapsed data set of novel isoforms of long read transcripts
-
-How to analyze resuts: 
-
-Future work:
-Adapt to other genome references
