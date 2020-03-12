@@ -24,9 +24,14 @@ Software:
 
 
 DBs used in benchmarking:
+
 SQANTI2 support data
 
 [Support Data](https://github.com/Magdoll/images_public/tree/master/SQANTI2_support_data)
+
+
+![image](https://github.com/NCBI-Codeathons/airbending_isoseq/blob/master/Pipeline_image.png)
+
 
 ## Inputs
 1. Alignment files (.sam) should not contain the extended X= notations in CIGAR string.
@@ -76,38 +81,39 @@ TALON pipeline
 
 ## Output Files from TALON
 
-Output from TALON will be a QC long and annotation table .tsv 
+Output from TALON will be a QC long and annotation table .tsv and .gtf
 Hyperlink to Talon GitHub
 [Talon](https://github.com/dewyman/TALON)
+
+
 Postprocessing:
+
+
+
+## SQANTI pipeline
+
 
 
 Filtering:
 
 
 
+Final Output:
+
 ## Future directions
+Adapt multiple genome references to be used with TALON 
+
+
 
 ### Team Members
+[Vamsi Kodali](https://github.com/vkkodali)
 
 
-What are we doing?
-Final goals are:
-Adapt multiple genome references to be used with TALON pipeline
-to be able to run TALON pipeline to collapse reads
-this means, a user would start with a bunch of alignments that will be first processed by TranscriptClean 
-the 'clean' transcripts are then used by talon cleanup step to remove internal priming candidates - transcript_label
-finally, run talon to collapse the transcripts 
-Adapt the output of TALON to work with SQANTI2
-Run SQANTI2 to classify the collapsed transcripts 
-Filter SQANTI2 output to produce high-confidence novel isoforms
-Benchmark this using 3 different human datasets
-
-Issues
-For the the pipeline to be compatible with data from a wide range of sources, we will need a few helper scripts that will be developed as part of this codeathon and made available. 
-Genome FASTA files cannot have titles in the header lines; we will use reformat_fasta.py to process RefSeq FASTA files to produce new files that are compatible with the tools in the TALON pipeline 
-RefSeq annotation GTF files lack the transcript lines; we will use the reformat_gtf.py script to add those lines
-SAM files often use the extended X= notations in their CIGAR strings. These are incompatible with TranscriptClean. We will use the reformat_sam.py script to process them. 
+[Fairlie Reese](https://github.com/fairliereese)
 
 
-![image](https://github.com/NCBI-Codeathons/airbending_isoseq/blob/master/Pipeline_image.png)
+[Elizabeth Hutchins](https://github.com/e-hutchins)
+
+
+[Catherine Giannetti](https://github.com/cgiannetti)
+
