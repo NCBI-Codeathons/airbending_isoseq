@@ -66,7 +66,7 @@ def main():
 
 	df['tid'] = df.apply(lambda x: get_field_value('transcript_id', x.fields), axis=1)
 	df['gid'] = df.apply(lambda x: get_field_value('gene_id', x.fields), axis=1)
-	df['gname'] = df.apply(lambda x: get_field_value('db_xref', x.fields), axis=1)
+	df['gname'] = df.apply(lambda x: get_field_value('gene', x.fields), axis=1)
 
 	gene_mins = df[['gid', 'start']].groupby(by='gid').min().copy(deep=True)
 	gene_maxes = df[['gid', 'stop']].groupby(by='gid').max().copy(deep=True)
