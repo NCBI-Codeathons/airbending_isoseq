@@ -15,13 +15,13 @@ This pipeline will take alignment data and use existing pipelines to collapse an
 ## Workflow
 Pre-processing:
 
-If you have a gff3 format you first need to convert this to gtf
+If you have a gff3 format you first need to convert this to gtf.
 `bash RefSeq_gff_to_gtf.sh <genome_gff3>`
 
-Genome FASTA files cannot have titles in the header lines so to produce new files that are compatible with the tools in the TALON pipeline 
+Genome FASTA files cannot have titles in the header lines so to produce new files that are compatible with the tools in the TALON pipeline.
 `python reformat_fasta.py <genome_fasta>`
 
-If GTF files lack the transcript lines add them using:
+If GTF files lack the transcript lines add them using.
 `python reformat_gtf.py <genome_gtf>`
 
 If SAM file contains the extended X= notations in their CIGAR strings. These are incompatible with TranscriptClean. We will use the reformat_sam.py script to process them. 
