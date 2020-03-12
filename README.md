@@ -108,4 +108,4 @@ RefSeq annotation GTF files lack the transcript lines; we will use the reformat_
 SAM files often use the extended X= notations in their CIGAR strings. These are incompatible with TranscriptClean. We will use the reformat_sam.py script to process them. 
 
 
-![image](https://github.com/NCBI-Codeathons/airbending_isoseq/blob/master/Pipeline%20(2).pdf)
+![image](https://github.com/NCBI-Codeathons/airbending_isoseq/blob/master/Pipeline_image.pdf)
