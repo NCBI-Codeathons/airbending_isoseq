@@ -16,7 +16,7 @@ do
 done
 
 #save file name
-prefix=$(basename $1 | sed 's/.gff//')
+prefix=$(basename ${gtf} | sed 's/.gff//')
 
 #convert to genePred format
 gff3ToGenePred ${gtf} ${prefix}.genePred.tmp
@@ -28,7 +28,7 @@ genePredToGtf file ${prefix}.genePred.tmp ${prefix}.gtf.tmp
 awk '$3=="transcript"' ${prefix}.gtf.tmp > ${prefix}.transcriptsOnly.gtf.tmp
 
 #add to gtf
-cat $1 ${prefix}.transcriptsOnly.gtf.tmp > ${prefix}.withTranscripts.gtf
+cat ${gtf} ${prefix}.transcriptsOnly.gtf.tmp > ${prefix}.withTranscripts.gtf
 
 #remove tmp files
 rm *.tmp
