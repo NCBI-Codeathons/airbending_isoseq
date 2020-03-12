@@ -11,6 +11,18 @@ SQANTI2 pipeline can further verify and annonate isoform data to give higher con
 ## What is Isoseq to Isoforms
 This pipeline will take alignment data and use existing pipelines to collapse and classify the alignments to output a table of high-quality novel isoform transcripts. Specifically, this pipeline will pre-process alignment data and reference genomes to be compatible with the TALON pipeline. It will then post-process TALON output to be compatible with SQANTI2 classification. Finally, the SQANTI2 output is filtered to only include high-quality novel isoforms.
 
+## Dependecies
+Software:
+
+[TranscriptClean](https://github.com/dewyman/TranscriptClean) to correct mismatches, microindels, and noncanonical splice junctions in long reads that have been mapped to the genome
+
+
+[Talon](https://github.com/dewyman/TALON) is a pipeline to collapse and classify aligned reads
+
+
+[SQANDI2](https://github.com/Magdoll/SQANTI2) is a pipeline to classify alignments based on CAGE, polyA, and RNA-seq data
+
+
 
 ## Inputs
 1. Alignment files (.sam) should not contain the extended X= notations in CIGAR string.
@@ -68,8 +80,6 @@ Postprocessing:
 
 Filtering:
 
-
-## Dependecies
 
 
 ## Future directions
