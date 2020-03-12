@@ -10,10 +10,10 @@ do
     g ) genome=${OPTARG} ;;
     r ) rangesize=${OPTARG} ;;
     t ) threads=${OPTARG} ;;
-    h ) echo "Usage: run_txclean.sh -i <input_sam>
+    h ) echo "Usage: run_talon_label_reads.sh -i <input_sam>
       -o <output_prefix> -g <genome_fasta> -r <range_size> -t <threads>"
       exit 1 ;;
-    \? ) echo "Usage: run_txclean.sh -i <input_sam>
+    \? ) echo "Usage: run_talon_label_reads.sh -i <input_sam>
       -o <output_prefix> -g <genome_fasta> -r <range_size> -t <threads>"
       exit 1 ;;
   esac
