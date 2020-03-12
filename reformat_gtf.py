@@ -13,32 +13,6 @@ def get_args():
 
 	return args
 
-# check what entries are missing in the gtf
-def is_bad_gtf(gtffile):
-
-	missing_gene = False
-	missing_trans = False
-
-	# how many lines are useless lines
-	with open(gtffile, 'r') as infile:
-		for i, line in enumerate(infile): 
-			if '##' not in line and not line.startswith('#'):
-				break
-	skiprows = [j for j in range(0, i)]
-
-	df = pd.read_csv(gtffile, sep='\t', usecols=[2], skiprows=skiprows)
-	categories = df.iloc[:,0].unique()
-
-	# print(categories)
-
-	# what are we missing?
-	if 'gene' not in categories:
-		missing_gene = True
-	if 'transcript' not in categories: 
-		missing_trans = True
-
-	return (missing_gene, missing_trans)
-
 # get value associated with keyword in the 9th column of gtf
 def get_field_value(key, fields):
     if key not in fields:
@@ -81,18 +55,14 @@ def main():
 	args = get_args()
 	gtffile = args.gtf
 
-	(missing_gene, missing_transcript) = is_bad_gtf(gtffile)
-
-	# if nothing is missing, you good!
-	if not missing_gene and not missing_transcript: 
-		print('GTF has both gene and transcript entries. Nothing to add.')
-		return
-
 	outfile = make_ofile_name(gtffile)
 
 	df = pd.read_csv(gtffile, sep='\t',
 		names=['chr', 'source', 'type', 'start', 'stop',
-		'score', 'strand', 'phase', 'fields'])
+		'score', 'strand', 'phase', 'fields'],
+		comment='#')
+
+	print(df)
 
 	df['tid'] = df.apply(lambda x: get_field_value('transcript_id', x.fields), axis=1)
 	df['gid'] = df.apply(lambda x: get_field_value('gene_id', x.fields), axis=1)
@@ -139,18 +109,12 @@ def main():
 			# construct transcript entry from its exons
 			else:
 
-				print(tid)
-
 				t_min = transcript_mins.loc[tid].tolist()[0]
 				t_max = transcript_maxes.loc[tid].tolist()[0]
-
-				print('min: {}'.format(t_min))
-				print('max: {}'.format(t_max))
 
 				# pull info out of constituent exons
 				t_entry = df.loc[df.tid == tid].head(1).copy(deep=True)
 				t_entry = construct_new_entry(t_entry, 'transcript', t_min, t_max)
-				print()
 
 				# and add new entry into the df
 				new_loc = t_entry.index.tolist()[0]
