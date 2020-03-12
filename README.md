@@ -12,45 +12,48 @@ SQANTI2 pipeline can further verify and annonate isoform data to give higher con
 This pipeline will take alignment data and use existing pipelines to collapse and classify the alignments to output a table of high-quality novel isoform transcripts. Specifically, this pipeline will pre-process alignment data and reference genomes to be compatible with the TALON pipeline. It will then post-process TALON output to be compatible with SQANTI2 classification. Finally, the SQANTI2 output is filtered to only include high-quality novel isoforms.
 
 
-## Workflow
-Pre-processing:
+## Inputs
+Alignment files (.sam) should not contain the extended X= notations in CIGAR string.
 
-If you have a gff3 format you first need to convert this to gtf
+`python reformat_sam.py <input_sam>`
 
+
+Genome annotations should be in gtf format with transcript lines included.
+
+If you have a gff3 format first convert this to gtf
 
 `bash RefSeq_gff_to_gtf.sh <genome_gff3>`
 
-Genome FASTA files cannot have titles in the header lines so to produce new files that are compatible with the tools in the TALON pipeline
-
-
-`python reformat_fasta.py <genome_fasta>`
-
-If GTF files lack the transcript lines add them using
+Now add transcript lines to gtf file
 
 
 `python reformat_gtf.py <genome_gtf>`
 
-If SAM file contains the extended X= notations in their CIGAR strings. These are incompatible with TranscriptClean. We will use the reformat_sam.py script to process them
+
+Genome fasta files cannot have titles in the header and should only contain chromosome information in order to be compatible with TALON
 
 
-`python reformat_sam.py <input_sam>`
+`python reformat_fasta.py <genome_fasta>`
 
-Now the data is ready to be cleaned
+## Workflow
+Talon pipeline 
+
+1. Now the data is ready to be cleaned
 
 
 `bash run_txclean.sh -i <input_sam> -o <output_prefix> -g <genome_fasta> -j <splice_juncs> -t <threads>`
 
-Run talon-label to remove internally primed transcripts
+2. Run talon-label to remove internally primed transcripts
 
 
 `run_talon_label_reads.sh -i <input_sam> -o <output_prefix> -g <genome_fasta> -r <range_size> -t <threads>`
 
-Initialize the database to run talon
+3. Initialize the database to run talon
 
 
 `run_talon_initialize_database.sh -i <input_gtf> -o <output_prefix> -g <genome_name> -a <annotation_name>`
 
-Run Talon to collapse and classify alignments
+4. Run Talon to collapse and classify alignments
 
 
 `run_talon.sh -i <config_file> -o <output_prefix> -d <talon_database_name> -g <genome_name> -t <threads>`
