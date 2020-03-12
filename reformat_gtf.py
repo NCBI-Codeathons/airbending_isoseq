@@ -121,7 +121,7 @@ def main():
 				df_new = pd.concat([df.iloc[:new_loc], t_entry, df.iloc[new_loc:]]).reset_index(drop=True)
 				df = df_new
 
-	df.to_csv(outfile, sep='\t', header=False)
+	df.to_csv(outfile, sep='\t', header=False, index=False)
 
 if __name__ == '__main__': main()
 
