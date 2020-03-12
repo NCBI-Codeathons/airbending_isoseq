@@ -15,35 +15,35 @@ This pipeline will take alignment data and use existing pipelines to collapse an
 ## Inputs
 Alignment files (.sam) should not contain the extended X= notations in CIGAR string.
 
-`python reformat_sam.py <input_sam>`
+`reformat_sam.py <input_sam>`
 
 
 Genome annotations should be in gtf format with transcript lines included.
 
 If you have a gff3 format first convert this to gtf
 
-`bash RefSeq_gff_to_gtf.sh <genome_gff3>`
+`RefSeq_gff_to_gtf.sh <genome_gff3>`
 
 Now add transcript lines to gtf file
 
 
-`python reformat_gtf.py <genome_gtf>`
+`reformat_gtf.py <genome_gtf>`
 
 
 Genome fasta files cannot have titles in the header and should only contain chromosome information in order to be compatible with TALON
 
 
-`python reformat_fasta.py <genome_fasta>`
+`reformat_fasta.py <genome_fasta>`
 
 ## Workflow
-Talon pipeline 
+TALON pipeline 
 
-1. Now the data is ready to be cleaned
+1. First clean data using TranscriptomeClean
 
 
-`bash run_txclean.sh -i <input_sam> -o <output_prefix> -g <genome_fasta> -j <splice_juncs> -t <threads>`
+`run_txclean.sh -i <input_sam> -o <output_prefix> -g <genome_fasta> -j <splice_juncs> -t <threads>`
 
-2. Run talon-label to remove internally primed transcripts
+2. Run talon_label_reads to remove internally primed transcripts
 
 
 `run_talon_label_reads.sh -i <input_sam> -o <output_prefix> -g <genome_fasta> -r <range_size> -t <threads>`
@@ -58,7 +58,7 @@ Talon pipeline
 
 `run_talon.sh -i <config_file> -o <output_prefix> -d <talon_database_name> -g <genome_name> -t <threads>`
 
-example input and output files
+## Output Files from TALON
 
 Postprocessing:
 
