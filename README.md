@@ -23,6 +23,8 @@ Software:
 [SQANDI2](https://github.com/Magdoll/SQANTI2) is a pipeline to classify alignments based on CAGE, polyA, and RNA-seq data
 
 
+DBs used in benchmarking:
+
 
 ## Inputs
 1. Alignment files (.sam) should not contain the extended X= notations in CIGAR string.
@@ -106,4 +108,4 @@ RefSeq annotation GTF files lack the transcript lines; we will use the reformat_
 SAM files often use the extended X= notations in their CIGAR strings. These are incompatible with TranscriptClean. We will use the reformat_sam.py script to process them. 
 
 
-![alt tag](https://github.com/NCBI-Codeathons/airbending_isoseq/files/4325511/Pipeline.1.pdf)
+![image](https://github.com/NCBI-Codeathons/airbending_isoseq/files/4325511/Pipeline.1.pdf)
