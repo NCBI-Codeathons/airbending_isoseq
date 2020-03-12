@@ -1,4 +1,4 @@
-# Inferring-intact-transcript-structure-and-discovering-novel-isoforms-from-long-read-data
+# Isoseq to Isoforms
 Preamble
 Long-read sequencing is becoming a powerful tool to analyze genomics and transcriptomics. (PacBio, Oxford Nanopore) Specifically, long-reads allow for the identification and discovery of novel isoforms in the transcriptome. Sentence why we care about novel isoforms. However, as this technology is applied to numerous projects, the number of reads per project has increased at a nearly exponential rate. It is imperative to have tools available to process these data accurately and reproducibly to produce new 'knowledge'.
 
