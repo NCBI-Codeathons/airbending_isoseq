@@ -2,8 +2,6 @@
 Preamble
 Long-read sequencing is becoming a powerful tool to analyze genomics and transcriptomics. (PacBio, Oxford Nanopore) Specifically, long-reads allow for the identification and discovery of novel isoforms in the transcriptome. Sentence why we care about novel isoforms. However, as this technology is applied to numerous projects, the number of reads per project has increased at a nearly exponential rate. It is imperative to have tools available to process these data accurately and reproducibly to produce new 'knowledge'.
 
-Long-read sequencing is becoming commonplace. As the number of projects as well as the number of reads per project increase at a near exponential rate, it becomes imperative to have tools available to process these data to produce new 'knowledge'. 
-
 Pipelines
 One issue with processing long-read sequences is the large number of alignments. 
 Existing pipelines such as TALON can use alignments as an input and process them to (1) collapse what can be considered the same transcript isoforms, and (2) classify the collapsed set to indicate known and novel isoforms in the dataset. TALON, in particular, is platform-agnostic but other pipelines that tackle similar problems are designed to work best with read data obtained from a specific platform. 
