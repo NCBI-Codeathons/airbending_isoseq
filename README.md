@@ -15,7 +15,7 @@ This pipeline will take alignment data and use existing pipelines to collapse an
 ## Workflow
 Pre-processing:
 
-
+example input and output files
 
 Postprocessing:
 
@@ -23,10 +23,13 @@ Postprocessing:
 Filtering:
 
 
-Pipelines
-One issue with processing long-read sequences is the large number of alignments. 
-Existing pipelines such as TALON can use alignments as an input and process them to (1) collapse what can be considered the same transcript isoforms, and (2) classify the collapsed set to indicate known and novel isoforms in the dataset. TALON, in particular, is platform-agnostic but other pipelines that tackle similar problems are designed to work best with read data obtained from a specific platform. 
-SQANTI2 is another platform that uses additional parameters to further classify isoforms based on CAGE, polyA motifs, and RNA-seq data. (why does this help?)
+## Dependecies
+
+
+## Future directions
+
+### Team Members
+
 
 What are we doing?
 Final goals are:
