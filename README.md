@@ -15,7 +15,9 @@ This pipeline will take alignment data and use existing pipelines to collapse an
 ## Workflow
 Pre-processing:
 
-If you have a gff3 format you first need to convert this to gtf.
+If you have a gff3 format you first need to convert this to gtf
+
+
 `bash RefSeq_gff_to_gtf.sh <genome_gff3>`
 
 Genome FASTA files cannot have titles in the header lines so to produce new files that are compatible with the tools in the TALON pipeline.
