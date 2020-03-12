@@ -24,7 +24,9 @@ Software:
 
 
 DBs used in benchmarking:
+SQANTI2 support data
 
+[Support Data](https://github.com/Magdoll/images_public/tree/master/SQANTI2_support_data)
 
 ## Inputs
 1. Alignment files (.sam) should not contain the extended X= notations in CIGAR string.
