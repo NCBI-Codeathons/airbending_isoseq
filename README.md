@@ -13,12 +13,12 @@ This pipeline will take alignment data and use existing pipelines to collapse an
 
 
 ## Inputs
-Alignment files (.sam) should not contain the extended X= notations in CIGAR string.
+1. Alignment files (.sam) should not contain the extended X= notations in CIGAR string.
 
 `reformat_sam.py <input_sam>`
 
 
-Genome annotations should be in gtf format with transcript lines included.
+2. Genome annotations should be in gtf format with transcript lines included.
 
 If you have a gff3 format first convert this to gtf
 
@@ -30,7 +30,7 @@ Now add transcript lines to gtf file
 `reformat_gtf.py <genome_gtf>`
 
 
-Genome fasta files cannot have titles in the header and should only contain chromosome information in order to be compatible with TALON
+3. Genome fasta files cannot have titles in the header and should only contain chromosome information in order to be compatible with TALON
 
 
 `reformat_fasta.py <genome_fasta>`
@@ -60,6 +60,9 @@ TALON pipeline
 
 ## Output Files from TALON
 
+Output from TALON will be a QC long and annotation table .tsv 
+Hyperlink to Talon GitHub
+[Talon](https://github.com/dewyman/TALON)
 Postprocessing:
 
 
