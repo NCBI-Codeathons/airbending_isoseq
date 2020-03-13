@@ -20,22 +20,25 @@ This pipeline will take alignment data and use existing pipelines to collapse an
 
 ### Data
 * Genome and Annotation
-    ** Human genome (GCF_000001405.39 GRCh38.p13)
-    ** RefSeq annotation (AR109.20200228)
-    ** GENCODE annotation (GENCODE v33)
+    * Human genome (GCF_000001405.39 GRCh38.p13)
+    * RefSeq annotation (AR109.20200228)
+    * GENCODE annotation (GENCODE v33)
 * [Support Data](https://github.com/Magdoll/images_public/tree/master/SQANTI2_support_data) provided with the SQANTI2 pipeline. Includes: 
-    ** Transcription start sites from the FANTOM5 project
-    ** Polyadenylation sites from the RefSeq group 
-    ** Intron features from the Intropolis project
+    * Transcription start sites from the FANTOM5 project
+    * Polyadenylation sites from the RefSeq group 
+    * Intron features from the Intropolis project
 
 ## Pipeline summary
 <img src="https://github.com/NCBI-Codeathons/airbending_isoseq/blob/master/Pipeline_image.png" width="323" height="633" align="center">
 
 ## Input data
 Most input data files had to be reformatted to some extent to ensure compatibility with one or more tools in the pipeline. 
-1. *Alignment files* in sam format were used. However, we reformatted them to replace the extended `X=` notations in CIGAR string with `M` using the `reformat_sam.py` script. Additionally, this script restricts the input alignments to the human chromosomes and mitochondrion only and removes any alignments mapping to the unplaced scaffolds, unlocalized scaffolds, and alternate loci. 
-2. *Genome annotations* in gtf format need to have transcript and gene feature lines but RefSeq GTF files lack the transcript lines. We processed the RefSeq GTF files to add these lines before use. 
-3. *Genome* data in fasta format was used. We pre-processed these files using `reformat_fasta.py` to remove titles from the headers and keep only the seq-id. 
+
+1. **Alignment files** in sam format were used. However, we reformatted them to replace the extended `X=` notations in CIGAR string with `M` using the `reformat_sam.py` script. Additionally, this script restricts the input alignments to the human chromosomes and mitochondrion only and removes any alignments mapping to the unplaced scaffolds, unlocalized scaffolds, and alternate loci. 
+
+2. **Genome annotations** in gtf format need to have transcript and gene feature lines but RefSeq GTF files lack the transcript lines. We processed the RefSeq GTF files to add these lines before use. 
+
+3. **Genome** data in fasta format was used. We pre-processed these files using `reformat_fasta.py` to remove titles from the headers and keep only the seq-id. 
 
 ## Workflow
 We created wrapper scripts for each step in the pipeline and run them as shown below: 
