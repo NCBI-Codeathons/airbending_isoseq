@@ -2,14 +2,14 @@
 
 set -euo pipefail 
 
-while getopts d:o:h:a:b:w option
+while getopts d:o:a:b:w:h option
 do
   case "${option}" in 
     d ) talon_db=${OPTARG} ;;
     o ) output_prefix=${OPTARG} ;;
-	a ) annotation=${OPTARG} ;;
-	b ) genome_build=${OPTARG} ;;
-	w ) whitelist=${OPTARG} ;;
+    a ) annotation=${OPTARG} ;;
+    b ) genome_build=${OPTARG} ;;
+    w ) whitelist=${OPTARG} ;;
     h ) echo "Usage: filter_talon_db.sh -d <talon_db> 
       -o <output_prefix>" 
       exit 1 ;;
