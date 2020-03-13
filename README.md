@@ -60,11 +60,15 @@ We created wrapper scripts for each step in the pipeline and run them as shown b
 
     `run_talon.sh -i <config_file> -o <output_prefix> -d <talon_database_name> -g <genome_name> -t <threads>`
 
-5. Run `talon_filter_transcripts` to remove internally primed transcripts
+5. Run `run_talon_filter_transcripts.sh` to remove internally primed transcripts (creates whitelist file)
 
-    `run_talon_filter_transcripts.sh -d <talon_db> -o <output_prefix>`
+    `run_talon_filter_transcripts.sh -d <talon_db> -o <output_prefix> -a <annotation_name>`
 
-6. Run SQANTI2 on the TALON output gtf files 
+6. Run `run_talon_create_GTF.sh` to create GTF file from TALON with whitelisted transcripts
+
+   `run_talon_create_GTF.sh -d <talon_db> -o <output_prefix> -a <annotation_name> -b <genome_build> -w <whitelist>`
+
+7. Run SQANTI2 on the TALON output gtf files 
 
     `run_sqanti.sh -i <input_gtf> -a <annotation> -g <genome_fasta> -l <polyA_motif_list> -p <polyA_peak> -c <cage_peaks> -s <splice_junctions>  -t <threads>`
 
