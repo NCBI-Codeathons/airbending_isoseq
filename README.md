@@ -30,7 +30,7 @@ SQANTI2 support data
 [Support Data](https://github.com/Magdoll/images_public/tree/master/SQANTI2_support_data)
 
 
-![image](https://github.com/NCBI-Codeathons/airbending_isoseq/blob/master/Pipeline_image.png)
+<img src='https://github.com/NCBI-Codeathons/airbending_isoseq/blob/master/Pipeline_image.png" width="245 height="480">
 
 
 ## Inputs
