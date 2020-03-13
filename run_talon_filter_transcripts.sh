@@ -8,11 +8,11 @@ do
     d ) talon_db=${OPTARG} ;;
     o ) output_prefix=${OPTARG} ;;
     a ) annotation=${OPTARG} ;;
-    h ) echo "Usage: filter_talon_db.sh -d <talon_db> 
-      -o <output_prefix>" 
+    h ) echo "Usage: run_talon_filter_transcripts.sh -d <talon_db> 
+      -o <output_prefix> -a <annotation_name>" 
       exit 1 ;;
-    \? ) echo "Usage: run_txclean.sh -d <talon_db> 
-      -o <output_prefix>" 
+    \? ) echo "Usage: run_talon_filter_transcripts.sh -d <talon_db>
+      -o <output_prefix> -a <annotation_name>"
       exit 1 ;;
   esac
 done
