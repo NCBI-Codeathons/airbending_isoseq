@@ -1,3 +1,5 @@
+<img src="avatar_symbols.jpg" width="50%" align="center">
+
 # Isoseq to Isoforms
 ## Long-read sequencing
 Long-read sequencing is becoming a powerful tool to analyze genomics and transcriptomics using technologies such as PacBio, Oxford Nanopore, and SLR-Seq. In transcriptomics, long-read sequences allow for the identification and discovery of novel isoforms that can help characterize complex transcriptomes. As this technology continues to progress and is applied to more projects, the number of reads will rise exponentially. It is imperative to have tools available to process these data accurately and reproducibly to curate new 'knowledge'.
@@ -29,7 +31,7 @@ This pipeline will take alignment data and use existing pipelines to collapse an
     * Intron features from the Intropolis project
 
 ## Pipeline summary
-<img src="https://github.com/NCBI-Codeathons/airbending_isoseq/blob/master/Pipeline_image.png" width="323" height="633" align="center">
+<img src="Pipeline_image.png" width="323" height="633" align="center">
 
 ## Input data
 Most input data files had to be reformatted to some extent to ensure compatibility with one or more tools in the pipeline. 
