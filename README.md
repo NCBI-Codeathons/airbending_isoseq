@@ -20,7 +20,9 @@ Software:
 [Talon](https://github.com/dewyman/TALON) is a pipeline to collapse and classify aligned reads
 
 
-[SQANDI2](https://github.com/Magdoll/SQANTI2) is a pipeline to classify alignments based on CAGE, polyA, and RNA-seq data
+[SQANTI2](https://github.com/Magdoll/SQANTI2) is a pipeline to classify alignments based on CAGE, polyA, and RNA-seq data
+
+[Cupcake](https://github.com/Magdoll/cDNA_Cupcake) in order to use SQANTI2
 
 
 DBs used in benchmarking:
@@ -30,7 +32,12 @@ SQANTI2 support data
 [Support Data](https://github.com/Magdoll/images_public/tree/master/SQANTI2_support_data)
 
 
-![image](https://github.com/NCBI-Codeathons/airbending_isoseq/blob/master/Pipeline_image.png)
+RefSeq genome
+
+
+
+
+<img src="https://github.com/NCBI-Codeathons/airbending_isoseq/blob/master/Pipeline_image.png" width="323" height="633" align="center">
 
 
 ## Inputs
@@ -92,7 +99,7 @@ Postprocessing:
 
 ## SQANTI pipeline
 
-
+`run_sqanti.sh -i <input_gtf> -a <annotation> -g <genome_fasta> -l <polyA_motif_list> -p <polyA_peak> -c <cage_peaks> -s <splice_junctions>  -t <threads>`
 
 Filtering:
 
@@ -102,6 +109,7 @@ Final Output:
 
 ## Future directions
 Adapt multiple genome references to be used with TALON 
+Adapt formatting for other genome references beside RefSeq
 
 
 
