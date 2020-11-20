@@ -1,0 +1,4 @@
+genome_fasta: 'test/genome.fa'
+input_aligns: 'test/test.sam'
+gtf: 'test/refseq_109.20200228.gtf'
+splice_junctions: 'test/splice_junctions.tsv'
