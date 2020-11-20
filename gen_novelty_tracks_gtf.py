@@ -72,7 +72,7 @@ def close_file_dict(d):
         del d[k]
     return d
 
-def write_track(key, gtffile, fname, colors_dict, url):
+def write_track(key, odir, gtffile, fname, colors_dict, url):
     color = colors_dict[key]
     base = ['track name="$BASE Type $CLASS"',\
             'visibility=full','color=$COLOR']
@@ -80,7 +80,10 @@ def write_track(key, gtffile, fname, colors_dict, url):
     string = string.replace('$BASE', get_basename(gtffile))
     string = string.replace('$CLASS', key)
     string = string.replace('$COLOR', color)
-    url += fname
+    # print(key)
+    # print(odir)
+    # url += fname
+    url += odir+key+'.gtf'
 
     string = string+'\n'+url
     return string
@@ -111,16 +114,15 @@ temp = os.path.dirname(gtffile)
 odir = format_odir(temp)
 odir = make_dated_folder(odir, get_basename(gtffile))
 odir = odir + get_basename(gtffile)+'_'
-url = line[4]
+url = args.url
 if url[-1] != '/':
     url += '/'
 
-# where to output final tracks to
-if not ind:
-    # custom tracks file    
-    tfile = odir+sep_type+'_tracks'
-    # print(tfile)
-    tfile = open(tfile, 'w')
+# where to output final tracks to:
+# custom tracks file    
+tfile = odir+sep_type+'_tracks'
+# print(tfile)
+tfile = open(tfile, 'w')
 
 # classes to look for and their associated colors
 if sep_type == 'n':
@@ -215,7 +217,7 @@ infile.close()
 
 # generate trackfile
 for c, fname in ofiles.items():
-    s = write_track(c, gtffile, get_basename(fname)+'.gtf', colors_dict, url)
+    s = write_track(c, odir, gtffile, get_basename(fname)+'.gtf', colors_dict, url)
     tfile.write(s+'\n')
     # print(fname)
 
@@ -234,7 +236,7 @@ for c, fname in ofiles.items():
 #     tfile.close()
 
 # close config file
-cfile.close()
+# cfile.close()
 
 
 
